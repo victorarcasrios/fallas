@@ -26,7 +26,7 @@ class UsersController extends Controller{
 
 		$validator = $this->getSignupValidator($name, $email, $password);
 		if($validator->fails())
-			return view('forms.signup')
+			return redirect()->back()
 					->with('errorMessage', 'Datos inválidos')
 					->withErrors($validator);
 
